@@ -1,0 +1,23 @@
+{
+  "name": "mecha-agent-inference-client-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:watch": "turbo watch dev"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.4",
+    "turbo": "^2.5.3",
+    "typescript": "5.8.2"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
