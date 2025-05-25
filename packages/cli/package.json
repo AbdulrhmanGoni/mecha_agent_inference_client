@@ -1,0 +1,28 @@
+{
+  "name": "@mecha-agent-inference-client/cli",
+  "description": "The CLI tool of Mecha Agent inference client",
+  "version": "0.0.0",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "bin": "./dist/main.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "keywords": [
+    "Mecha",
+    "Mecha Agent",
+    "inference",
+    "client",
+    "AI",
+    "Agent",
+    "cli"
+  ],
+  "author": "Abdulrhman Goni",
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "5.8.2"
+  }
+}
