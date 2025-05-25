@@ -1,0 +1,29 @@
+{
+  "name": "@mecha-agent-inference-client/core",
+  "description": "The package that contains the core logic of Mecha Agent inference client",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [
+    "Mecha",
+    "Mecha Agent",
+    "inference",
+    "client",
+    "AI",
+    "Agent",
+    "core"
+  ],
+  "author": "Abdulrhman Goni",
+  "devDependencies": {
+    "typescript": "5.8.2",
+    "vite": "^6.2.6",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}
