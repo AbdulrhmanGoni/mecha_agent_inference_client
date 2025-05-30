@@ -12,6 +12,8 @@
 
     .chat-avatar {
         border-radius: 9999px;
+        width: 40px;
+        height: 40px;
     }
 
     .chat-content {
@@ -63,5 +65,30 @@
         .chat-text {
             font-size: 1rem;
         }
+    }
+
+    .user-avatar,
+    .agent-fallback-avatar {
+        flex-shrink: 0;
+        background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+        border: 1px solid var(--primary);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .user-avatar {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='currentColor' d='M3.5 14v-.5a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4v.5m-2-9a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0Z' stroke-width='1'/%3E%3C/svg%3E");
+    }
+
+    &.dark .user-avatar {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='white' d='M3.5 14v-.5a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4v.5m-2-9a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0Z' stroke-width='1'/%3E%3C/svg%3E");
+    }
+
+    .agent-fallback-avatar {
+        background-image: url("./agent-avatar.svg");
+    }
+
+    &.dark .agent-fallback-avatar {
+        background-image: url("./agent-avatar-dark.svg");
     }
 }
