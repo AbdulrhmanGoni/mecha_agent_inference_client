@@ -1,0 +1,66 @@
+#mecha-agent-chat {
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        border-top: 1px solid var(--surface2);
+        padding: 0.75rem;
+        font-size: 0.875rem;
+        box-shadow: 0px 3px 5px 0px var(--primary-text);
+    }
+
+    .footer-logo {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .footer-credit {
+        color: var(--secondary-text);
+
+        a {
+            color: var(--primary);
+            margin-left: 0.25rem;
+        }
+    }
+
+    .footer-image {
+        border-radius: 9999px;
+    }
+
+    .footer-link {
+        text-decoration: none;
+    }
+
+    .footer-link:hover {
+        text-decoration: underline;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 0.5rem;
+
+        a {
+            align-items: center;
+            color: var(--secondary-text);
+        }
+    }
+
+    .footer-text-link {
+        color: var(--secondary-text);
+        text-decoration: none;
+    }
+
+    .footer-text-link:hover {
+        text-decoration: underline;
+    }
+}

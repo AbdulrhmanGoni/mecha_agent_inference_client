@@ -1,0 +1,67 @@
+#mecha-agent-chat {
+    .chat-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.625rem;
+    }
+
+    .chat-box-user {
+        flex-direction: row-reverse;
+        align-self: flex-end;
+    }
+
+    .chat-avatar {
+        border-radius: 9999px;
+    }
+
+    .chat-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        width: 100%;
+    }
+
+    .chat-name {
+        font-weight: 600;
+    }
+
+    .chat-name-user {
+        align-self: flex-end;
+    }
+
+    .chat-message {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        line-height: 1.5;
+        padding: 0.625rem;
+        border-radius: var(--radius);
+    }
+
+    @media (min-width: 640px) {
+        .chat-message {
+            padding: 1rem;
+        }
+    }
+
+    .chat-message-user {
+        border-top-right-radius: 0rem;
+        background-color: color-mix(in srgb, var(--primary) 70%, transparent);
+    }
+
+    .chat-message-agent {
+        border-top-left-radius: 0rem;
+        background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+    }
+
+    .chat-text {
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+
+    @media (min-width: 640px) {
+        .chat-text {
+            font-size: 1rem;
+        }
+    }
+}

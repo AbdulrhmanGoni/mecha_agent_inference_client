@@ -1,0 +1,24 @@
+#mecha-agent-chat {
+    .alert {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 1rem;
+        color: #dc2626;
+        background-color: color-mix(in srgb, #dc2626 15%, transparent);
+        border-radius: var(--radius);
+        border: 1px solid #dc2626;
+
+        .message {
+            flex: 1;
+            margin-inline-start: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        svg {
+            flex-shrink: 0;
+            height: 1rem;
+        }
+    }
+}

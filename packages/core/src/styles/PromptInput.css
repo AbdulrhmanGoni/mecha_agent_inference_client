@@ -1,0 +1,61 @@
+#mecha-agent-chat {
+    .prompt-form {
+        width: 100%;
+        display: flex;
+
+        &.disabled {
+            opacity: 0.7 !important;
+        }
+    }
+
+    .disabled {
+        cursor: not-allowed !important;
+    }
+
+    .prompt-input {
+        box-sizing: border-box;
+        border-right: none;
+        border-top-left-radius: var(--radius);
+        border-bottom-left-radius: var(--radius);
+        border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+        background-color: color-mix(in srgb, var(--primary) 20%, transparent);
+        outline: none;
+        display: block;
+        width: 100%;
+        padding: 0.475rem;
+        transition: 0.2s;
+        font-size: 0.875rem;
+        color: var(--primary-text);
+
+        &::placeholder {
+            color: var(--secondary-text);
+        }
+
+        &:focus {
+            border: 1px solid var(--primary);
+        }
+    }
+
+    .prompt-button {
+        color: white;
+        font-size: 0.875rem;
+        padding: 0.475rem;
+        background-color: var(--primary);
+        border-top-right-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+        border: none;
+        cursor: pointer;
+    }
+
+    @media (min-width: 640px) {
+        .prompt-input {
+            font-size: 1rem;
+            padding: 0.725rem;
+        }
+
+        .prompt-button {
+            font-size: 1rem;
+            padding: 0.725rem;
+        }
+    }
+}
