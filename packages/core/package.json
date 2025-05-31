@@ -8,6 +8,21 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    "./server": {
+      "import": "./dist/server/index.es.js",
+      "types": "./dist/types/server.d.ts",
+      "require": "./dist/server/index.cjs.js"
+    },
+    "./client": {
+      "import": "./dist/client/index.es.js",
+      "types": "./dist/types/client.d.ts",
+      "require": "./dist/client/index.cjs.js"
+    },
+    "./types": "./dist/types/global.d.ts",
+    "./styles.css": "./dist/styles.css",
+    "./logo.webp": "./dist/logo.webp"
+  },
   "scripts": {
     "build": "vite build"
   },
@@ -21,6 +36,9 @@
     "core"
   ],
   "author": "Abdulrhman Goni",
+  "sideEffects": [
+    "./dist/styles.css"
+  ],
   "devDependencies": {
     "typescript": "5.8.2",
     "vite": "^6.2.6",
