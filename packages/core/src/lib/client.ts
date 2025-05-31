@@ -1,3 +1,5 @@
+import "../styles/index.css"
+
 type promptRequestOptions = {
     prompt: string,
     chatId?: string,
