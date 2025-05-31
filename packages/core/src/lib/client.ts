@@ -11,8 +11,10 @@ type promptRequestOptions = {
 export async function promptRequest(
     { prompt, chatId, onData, onEnd, onError }: promptRequestOptions
 ) {
+    const { scroll, endScrolling } = autoScrollToTheEndOfChat();
     try {
-        const response = await fetch(`/api/mecha-agent/chat?chatId=${chatId || "new"}`, {
+        scroll()
+        const response = await fetch(`/api/mecha-agent?target=chat&chatId=${chatId || "new"}`, {
             method: "POST",
             body: JSON.stringify({ prompt }),
         });
@@ -39,7 +41,30 @@ export async function promptRequest(
             const res = await response.json()
             onError?.(res.error || "Unexpected error !")
         }
+        scroll()
     } catch (error: any) {
         onError?.(error?.message || "Unexpected error !")
     }
+
+    endScrolling()
 };
+
+function autoScrollToTheEndOfChat() {
+    const messagesContainer = document.querySelector("#mecha-agent-chat .chat-messages-container");
+
+    function scroll() {
+        messagesContainer?.scroll({
+            behavior: "smooth",
+            top: messagesContainer.scrollHeight,
+        });
+    }
+
+    const intervalId = setInterval(scroll, 1000);
+
+    return {
+        scroll,
+        endScrolling() {
+            clearInterval(intervalId)
+        }
+    }
+}
