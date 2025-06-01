@@ -72,3 +72,31 @@ function autoScrollToTheEndOfChat() {
         }
     }
 }
+
+type FooterLink = {
+    text: string,
+    link: string
+}
+
+type FooterLinks = {
+    mechaAgentAppUrl: string;
+    madeBy: FooterLink;
+    docs: FooterLink;
+    termsAndConditions: FooterLink;
+}
+
+export const footerLinks: FooterLinks = {
+    mechaAgentAppUrl: process.env.MECHA_AGENT_APP_URL as string,
+    madeBy: {
+        link: "https://github.com/AbdulrhmanGoni",
+        text: "Abdulrhman Goni",
+    },
+    docs: {
+        text: "Docs",
+        link: "https://github.com/AbdulrhmanGoni/mecha-agent-inference-client",
+    },
+    termsAndConditions: {
+        text: "Terms & Conditions",
+        link: `${process.env.MECHA_AGENT_APP_URL}/terms-and-condition`,
+    },
+}
