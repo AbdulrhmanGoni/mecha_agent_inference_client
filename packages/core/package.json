@@ -24,7 +24,8 @@
     "./logo.webp": "./dist/logo.webp"
   },
   "scripts": {
-    "build": "vite build"
+    "build:dev": "vite build --mode development",
+    "build:prod": "vite build"
   },
   "keywords": [
     "Mecha",
