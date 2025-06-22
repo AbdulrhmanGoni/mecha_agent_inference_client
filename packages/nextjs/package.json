@@ -6,6 +6,9 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": "./dist/main.js"
+  },
   "scripts": {
     "build:dev": "tsc",
     "build:prod": "tsc"
