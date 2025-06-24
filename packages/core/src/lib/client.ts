@@ -83,6 +83,7 @@ type FooterLinks = {
     madeBy: FooterLink;
     docs: FooterLink;
     termsAndConditions: FooterLink;
+    privacyPolicy: FooterLink;
 }
 
 export const footerLinks: FooterLinks = {
@@ -96,7 +97,11 @@ export const footerLinks: FooterLinks = {
         link: "https://github.com/AbdulrhmanGoni/mecha-agent-inference-client",
     },
     termsAndConditions: {
-        text: "Terms & Conditions",
-        link: `${process.env.MECHA_AGENT_APP_URL}/terms-and-condition`,
+        text: "Terms",
+        link: `${process.env.MECHA_AGENT_APP_URL}/terms-and-conditions`,
+    },
+    privacyPolicy: {
+        text: "Privacy",
+        link: `${process.env.MECHA_AGENT_APP_URL}/privacy`,
     },
 }

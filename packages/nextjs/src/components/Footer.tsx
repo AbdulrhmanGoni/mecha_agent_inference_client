@@ -37,6 +37,14 @@ export default function Footer() {
                 >
                     {footerLinks.termsAndConditions.text}
                 </a>
+                -
+                <a
+                    href={footerLinks.privacyPolicy.link}
+                    target="_blank"
+                    className="footer-link"
+                >
+                    {footerLinks.privacyPolicy.text}
+                </a>
             </div>
         </div>
     )

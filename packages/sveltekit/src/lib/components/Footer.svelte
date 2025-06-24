@@ -32,5 +32,13 @@
     >
       {footerLinks.termsAndConditions.text}
     </a>
+    -
+    <a
+      href={footerLinks.privacyPolicy.link}
+      target="_blank"
+      class="footer-link"
+    >
+      {footerLinks.privacyPolicy.text}
+    </a>
   </div>
 </div>
