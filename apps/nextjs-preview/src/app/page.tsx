@@ -1,3 +1,5 @@
+import { MechaAgentChat } from "@mecha-agent-inference-client/nextjs";
+
 export default function Preview() {
-  return <h1>Preview</h1>
+  return <MechaAgentChat />
 }
