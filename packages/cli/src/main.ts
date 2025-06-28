@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+import { installPackage } from "./installPackage";
+import { argsValidation } from "./argsValidation";
 
-const [, , ...args] = process.argv;
+const { framework, options } = argsValidation(process.argv)
 
-console.log("Wellcome Mecha Agent inference client CLI 👋🚀")
+installPackage(`@mecha_agent_inference_client/${framework.name}`)
