@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useContext } from "react";
 import { chatContext } from "./ChatContextProvider";
 import SwitchTheme from "./SwitchTheme";
-import { createAgentAvatarUrl } from "@mecha-agent-inference-client/core/client";
+import { createAgentAvatarUrl } from "@mecha_agent_inference_client/core/client";
 
 export default function Header({ agent }: { agent: Agent }) {
     const state = useContext(chatContext)

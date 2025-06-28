@@ -1,5 +1,5 @@
 {
-  "name": "@mecha-agent-inference-client/nextjs",
+  "name": "@mecha_agent_inference_client/nextjs",
   "description": "The Mecha Agent inference client implemented in React for Next.js apps",
   "version": "0.0.0",
   "private": false,
@@ -26,7 +26,7 @@
   "author": "Abdulrhman Goni",
   "license": "ISC",
   "dependencies": {
-    "@mecha-agent-inference-client/core": "workspace:*"
+    "@mecha_agent_inference_client/core": "workspace:*"
   },
   "peerDependencies": {
     "next": "^15.3.2",

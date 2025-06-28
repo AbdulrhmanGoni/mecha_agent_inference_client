@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createAgentAvatarUrl } from "@mecha-agent-inference-client/core/client";
+  import { createAgentAvatarUrl } from "@mecha_agent_inference_client/core/client";
   import { resetChatState } from "../store/chat.svelte.js";
   import SwitchTheme from "./SwitchTheme.svelte";
 

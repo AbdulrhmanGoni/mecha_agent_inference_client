@@ -1,6 +1,6 @@
 import Image from "next/image";
-import logo from "@mecha-agent-inference-client/core/logo.webp";
-import { footerLinks } from "@mecha-agent-inference-client/core/client";
+import logo from "@mecha_agent_inference_client/core/logo.webp";
+import { footerLinks } from "@mecha_agent_inference_client/core/client";
 
 export default function Footer() {
     return (

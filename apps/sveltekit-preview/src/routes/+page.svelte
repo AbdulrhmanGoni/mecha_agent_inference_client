@@ -1,6 +1,6 @@
 <script lang="ts">
     import "../global.css";
-    import { MechaAgentChat } from "@mecha-agent-inference-client/sveltekit";
+    import { MechaAgentChat } from "@mecha_agent_inference_client/sveltekit";
 </script>
 
 <MechaAgentChat />

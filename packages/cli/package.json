@@ -1,5 +1,5 @@
 {
-  "name": "@mecha-agent-inference-client/cli",
+  "name": "@mecha_agent_inference_client/cli",
   "description": "The CLI tool of Mecha Agent inference client",
   "version": "0.0.0",
   "private": false,

@@ -1,4 +1,4 @@
-import { promptRequest } from "@mecha-agent-inference-client/core/client";
+import { promptRequest } from "@mecha_agent_inference_client/core/client";
 import { FormEvent, useContext } from "react";
 import { chatContext } from "./ChatContextProvider";
 

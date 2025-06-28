@@ -1,5 +1,5 @@
 {
-  "name": "mecha-agent-inference-client-monorepo",
+  "name": "mecha_agent_inference_client_monorepo",
   "private": true,
   "scripts": {
     "build:dev": "turbo run build:dev",

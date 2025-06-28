@@ -1,5 +1,5 @@
 import type { RequestEvent } from "@sveltejs/kit";
-import { GetAgentData, SendPrompt, GetChatMessages, GetAgentAvatar } from "@mecha-agent-inference-client/core/server";
+import { GetAgentData, SendPrompt, GetChatMessages, GetAgentAvatar } from "@mecha_agent_inference_client/core/server";
 
 type MechaAgentRouteHandlerConfig = {
     agentId: string;

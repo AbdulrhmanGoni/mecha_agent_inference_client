@@ -1,5 +1,5 @@
 {
-  "name": "@mecha-agent-inference-client/core",
+  "name": "@mecha_agent_inference_client/core",
   "description": "The package that contains the core logic of Mecha Agent inference client",
   "version": "0.0.0",
   "private": false,

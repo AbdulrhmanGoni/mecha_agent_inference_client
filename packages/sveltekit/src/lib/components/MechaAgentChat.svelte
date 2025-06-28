@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "@mecha-agent-inference-client/core/styles.css";
+  import "@mecha_agent_inference_client/core/styles.css";
   import PromptInput from "./PromptInput.svelte";
   import Header from "./Header.svelte";
   import Footer from "./Footer.svelte";

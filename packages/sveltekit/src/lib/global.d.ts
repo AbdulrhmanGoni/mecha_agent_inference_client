@@ -1,6 +1,6 @@
-type Agent = import("@mecha-agent-inference-client/core/types").Agent
+type Agent = import("@mecha_agent_inference_client/core/types").Agent
 
-type ChatMessage = import("@mecha-agent-inference-client/core/types").ChatMessage & {
+type ChatMessage = import("@mecha_agent_inference_client/core/types").ChatMessage & {
     isGenerating?: boolean,
     error?: string
 }

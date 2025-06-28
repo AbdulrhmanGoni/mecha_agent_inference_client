@@ -1,5 +1,5 @@
 {
-  "name": "mecha-agent-inference-client-nextjs-preview",
+  "name": "mecha_agent_inference_client_nextjs-preview",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -7,7 +7,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mecha-agent-inference-client/nextjs": "workspace:*",
+    "@mecha_agent_inference_client/nextjs": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "next": "15.3.2"

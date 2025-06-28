@@ -1,5 +1,5 @@
 {
-	"name": "mecha-agent-inference-client-sveltekit-preview",
+	"name": "mecha_agent_inference_client_sveltekit-preview",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -10,7 +10,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"dependencies": {
-		"@mecha-agent-inference-client/sveltekit": "workspace:*"
+		"@mecha_agent_inference_client/sveltekit": "workspace:*"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.0",

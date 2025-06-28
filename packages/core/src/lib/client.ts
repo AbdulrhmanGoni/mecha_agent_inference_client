@@ -94,7 +94,7 @@ export const footerLinks: FooterLinks = {
     },
     docs: {
         text: "Docs",
-        link: "https://github.com/AbdulrhmanGoni/mecha-agent-inference-client",
+        link: "https://github.com/AbdulrhmanGoni/mecha_agent_inference_client",
     },
     termsAndConditions: {
         text: "Terms",

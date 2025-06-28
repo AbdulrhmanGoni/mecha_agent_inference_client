@@ -1,5 +1,5 @@
 "use client"
-import "@mecha-agent-inference-client/core/styles.css"
+import "@mecha_agent_inference_client/core/styles.css"
 import { useEffect } from "react"
 import useAgent from "../hooks/useAgent"
 import Alert from "./Alert"

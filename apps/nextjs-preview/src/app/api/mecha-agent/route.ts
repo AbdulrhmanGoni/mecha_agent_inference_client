@@ -1,4 +1,4 @@
-import { handler } from "@mecha-agent-inference-client/nextjs";
+import { handler } from "@mecha_agent_inference_client/nextjs";
 
 export const routeHandler = handler({
     agentId: process.env.AGENT_ID as string,

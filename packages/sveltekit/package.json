@@ -1,5 +1,5 @@
 {
-	"name": "@mecha-agent-inference-client/sveltekit",
+	"name": "@mecha_agent_inference_client/sveltekit",
 	"description": "The Mecha Agent inference client implemented in Svelte for Sveltekit apps",
 	"version": "0.0.0",
 	"private": false,
@@ -32,7 +32,7 @@
 		"svelte": "^5.0.0"
 	},
 	"dependencies": {
-		"@mecha-agent-inference-client/core": "workspace:*"
+		"@mecha_agent_inference_client/core": "workspace:*"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.0",

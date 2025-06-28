@@ -20,7 +20,7 @@ importers:
 
   apps/nextjs-preview:
     dependencies:
-      '@mecha-agent-inference-client/nextjs':
+      '@mecha_agent_inference_client/nextjs':
         specifier: workspace:*
         version: link:../../packages/nextjs
       next:
@@ -48,7 +48,7 @@ importers:
 
   apps/sveltekit-preview:
     dependencies:
-      '@mecha-agent-inference-client/sveltekit':
+      '@mecha_agent_inference_client/sveltekit':
         specifier: workspace:*
         version: link:../../packages/sveltekit
     devDependencies:
@@ -100,7 +100,7 @@ importers:
 
   packages/nextjs:
     dependencies:
-      '@mecha-agent-inference-client/core':
+      '@mecha_agent_inference_client/core':
         specifier: workspace:*
         version: link:../core
       next:
@@ -125,7 +125,7 @@ importers:
 
   packages/sveltekit:
     dependencies:
-      '@mecha-agent-inference-client/core':
+      '@mecha_agent_inference_client/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:

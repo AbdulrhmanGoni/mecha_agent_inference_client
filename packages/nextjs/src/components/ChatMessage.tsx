@@ -1,6 +1,6 @@
 import Image from "next/image";
 import IsTypingState from "./IsTypingState";
-import { createAgentAvatarUrl } from "@mecha-agent-inference-client/core/client";
+import { createAgentAvatarUrl } from "@mecha_agent_inference_client/core/client";
 
 type ChatMessageProps = {
     agent: Agent;
