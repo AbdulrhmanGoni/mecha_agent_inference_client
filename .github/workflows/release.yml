@@ -24,7 +24,7 @@ jobs:
           node-version: 20.x
 
       - name: Install Dependencies
-        run: pnpm install
+        run: npm install --global corepack@latest && pnpm install
 
       - name: Create release pull request and publish to npm
         uses: changesets/action@v1
