@@ -1,7 +1,7 @@
 {
   "name": "@mecha_agent_inference_client/cli",
   "description": "The CLI tool to add the Mecha Agent inference client into an existing project by one command",
-  "version": "0.0.0",
+  "version": "1.1.0",
   "private": false,
   "files": [
     "dist",
