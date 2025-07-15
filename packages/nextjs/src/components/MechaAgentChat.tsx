@@ -7,7 +7,7 @@ import LoadingAgent from "./LoadingAgent"
 import ChatLayout from "./ChatLayout"
 
 export default function MechaAgentChat() {
-    const { agent, agentLoading, agentError } = useAgent();
+    const { agent, agentLoading, agentError, refetchAgent } = useAgent();
 
     function setTheme(idDarkTheme: boolean) {
         if (idDarkTheme) {
@@ -31,7 +31,10 @@ export default function MechaAgentChat() {
         <div id="mecha-agent-chat">
             {
                 agentLoading ? <LoadingAgent /> :
-                    agentError ? <Alert message={agentError} /> :
+                    agentError ? <Alert
+                        message={agentError}
+                        actionIcon={<button onClick={refetchAgent}>Retry</button>}
+                    /> :
                         agent ? <ChatLayout agent={agent} /> : null
             }
         </div>

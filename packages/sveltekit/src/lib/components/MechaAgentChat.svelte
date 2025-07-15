@@ -39,7 +39,7 @@
   {#if agentState.loading}
     <LoadingAgent />
   {:else if agentState.error}
-    <Alert message={agentState.error} />
+    <Alert message={agentState.error} actionIcon={retryButton} />
   {:else if agentState.agent}
     <div class="chat-layout">
       <Header agent={agentState.agent} />
@@ -51,3 +51,7 @@
     </div>
   {/if}
 </div>
+
+{#snippet retryButton()}
+  <button onclick={fetchAgentData}>Retry</button>
+{/snippet}
