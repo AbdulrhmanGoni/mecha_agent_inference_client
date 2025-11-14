@@ -2,7 +2,7 @@ import { execSync } from "node:child_process";
 import { existsSync } from "node:fs";
 
 function getPackageManager() {
-    if (existsSync("bun.lockb")) {
+    if (existsSync("bun.lockb") || existsSync("bun.lock")) {
         console.log('📦 Bun package manager detected');
         return "bun"
     };
