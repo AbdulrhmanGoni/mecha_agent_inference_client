@@ -1,6 +1,5 @@
 import Image from "next/image";
 import IsTypingState from "./IsTypingState";
-import { createAgentAvatarUrl } from "@mecha_agent_inference_client/core/client";
 
 type ChatMessageProps = {
     agent: Agent;
@@ -19,8 +18,8 @@ export default function ChatMessage({ agent, role, content, isGenerating }: Chat
                             width={40}
                             height={40}
                             className='chat-avatar'
-                            src={createAgentAvatarUrl(agent.avatar)}
-                            alt={"Agent Avatar"}
+                            src={agent.avatar}
+                            alt="Agent Avatar"
                         /> : <span className="chat-avatar agent-fallback-avatar" />
             }
             <div className="chat-content">

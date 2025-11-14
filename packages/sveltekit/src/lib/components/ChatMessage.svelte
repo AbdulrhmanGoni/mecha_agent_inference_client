@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { createAgentAvatarUrl } from "@mecha_agent_inference_client/core/client";
   import IsTypingState from "./IsTypingState.svelte";
 
   type ChatMessageProps = {
@@ -16,11 +15,7 @@
   {#if isUserPart}
     <span class="chat-avatar user-avatar"></span>
   {:else if agent.avatar}
-    <img
-      class="chat-avatar"
-      src={createAgentAvatarUrl(agent.avatar)}
-      alt="Agent Avatar"
-    />
+    <img class="chat-avatar" src={agent.avatar} alt="Agent Avatar" />
   {:else}
     <span class="chat-avatar agent-fallback-avatar"></span>
   {/if}

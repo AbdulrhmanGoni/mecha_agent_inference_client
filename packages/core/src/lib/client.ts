@@ -49,10 +49,6 @@ export async function promptRequest(
     endScrolling()
 };
 
-export function createAgentAvatarUrl(avatarId: string) {
-    return `/api/mecha-agent?target=agent-avatar&avatarId=${avatarId}`;
-}
-
 function autoScrollToTheEndOfChat() {
     const messagesContainer = document.querySelector("#mecha-agent-chat .chat-messages-container");
 

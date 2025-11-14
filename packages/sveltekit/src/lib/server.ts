@@ -20,21 +20,6 @@ function GetAgentDataHandler(config: MechaAgentRouteHandlerConfig) {
     }
 }
 
-function GetAgentAvatarHandler(config: MechaAgentRouteHandlerConfig) {
-    return async function (e: RequestEvent) {
-        const { body, status } = await GetAgentAvatar({
-            agentId: config.agentId,
-            apiKey: config.apiKey,
-            avatarId: e.url.searchParams.get("avatarId")?.toString()
-        })
-
-        return new Response(
-            body instanceof ReadableStream ? body : JSON.stringify(body),
-            { status }
-        );
-    }
-}
-
 function GetChatMessagesHandler(config: MechaAgentRouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const { body, status } = await GetChatMessages({

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { createAgentAvatarUrl } from "@mecha_agent_inference_client/core/client";
   import { resetChatState } from "../store/chat.svelte.js";
   import SwitchTheme from "./SwitchTheme.svelte";
 
@@ -9,11 +8,7 @@
 <div class="header">
   <div class="agent-info">
     {#if agent.avatar}
-      <img
-        class="avatar"
-        src={createAgentAvatarUrl(agent.avatar)}
-        alt="Agent Avatar"
-      />
+      <img class="avatar" src={agent.avatar} alt="Agent Avatar" />
     {:else}
       <span class="avatar agent-fallback-avatar"></span>
     {/if}

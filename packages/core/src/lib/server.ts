@@ -99,34 +99,4 @@ export async function GetChatMessages({ apiKey, agentId, chatId }: Params): Prom
     }
 }
 
-export async function GetAgentAvatar({ apiKey, agentId, avatarId }: Params): Promise<GetAgentDataReturn> {
-    try {
-        const url = `${MECHA_AGENT_BASE_URL}/api/media/agents-avatars/${avatarId}`
-        const response = await fetch(url, {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: "Bearer " + apiKey
-            },
-        });
-
-        if (!response.ok) {
-            const errorBody = await response.json();
-            console.error(
-                `Error from mecha agent server at \`GET /api/media/agents-avatars/${avatarId}\`:`,
-                errorBody.error || 'Unknown error'
-            );
-            return { body: { error: "Error from mecha agent server" }, status: response.status }
-        }
-
-        return {
-            body: response.body,
-            status: response.status,
-            headers: { "Content-Type": response.headers.get("Content-Type") as string },
-        }
-    } catch (error) {
-        console.error(`Error in "agent avatar" proxy. Agent id: ${agentId}, Avatar id: ${avatarId}`, error);
-        return internalServerError
-    }
-}
-
 const internalServerError = { body: { error: 'Internal server error' }, status: 500 }
