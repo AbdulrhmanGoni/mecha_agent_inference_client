@@ -19,7 +19,7 @@
         {
           content: "",
           role: "agent",
-        }
+        },
       );
 
       const responsePart = chatState.chatFeed[chatState.chatFeed.length - 1];
@@ -59,8 +59,9 @@
     }
   };
 
-  const disabledPromptInput =
-    chatState.isGenerating || chatState.isFetching || !!chatState.error;
+  const disabledPromptInput = $derived(
+    chatState.isGenerating || chatState.isFetching,
+  );
 </script>
 
 <form
