@@ -1,5 +1,16 @@
 # @mecha_agent_inference_client/sveltekit
 
+## 1.3.0
+
+### Minor Changes
+
+- enable chatting with public agents without auth
+
+### Patch Changes
+
+- Updated dependencies
+  - @mecha_agent_inference_client/core@1.3.0
+
 ## 1.2.0
 
 ### Minor Changes

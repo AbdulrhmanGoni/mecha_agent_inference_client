@@ -1,5 +1,11 @@
 # @mecha_agent_inference_client/cli
 
+## 1.1.1
+
+### Patch Changes
+
+- make `getPackageManager` fn recognizes "bun.lock"
+
 ## 1.1.0
 
 ### Major Changes
