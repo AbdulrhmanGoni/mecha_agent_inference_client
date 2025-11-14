@@ -1,12 +1,9 @@
 import type { RequestEvent } from "@sveltejs/kit";
-import { GetAgentData, SendPrompt, GetChatMessages, GetAgentAvatar } from "@mecha_agent_inference_client/core/server";
+import { GetAgentData, SendPrompt, GetChatMessages } from "@mecha_agent_inference_client/core/server";
 
-type MechaAgentRouteHandlerConfig = {
-    agentId: string;
-    apiKey: string;
-}
+type RouteHandlerConfig = import("@mecha_agent_inference_client/core/types").MechaAgentRouteHandlerConfig
 
-function GetAgentDataHandler(config: MechaAgentRouteHandlerConfig) {
+function GetAgentDataHandler(config: RouteHandlerConfig) {
     return async function () {
         const { body, status } = await GetAgentData({
             agentId: config.agentId,
@@ -20,7 +17,7 @@ function GetAgentDataHandler(config: MechaAgentRouteHandlerConfig) {
     }
 }
 
-function GetChatMessagesHandler(config: MechaAgentRouteHandlerConfig) {
+function GetChatMessagesHandler(config: RouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const { body, status } = await GetChatMessages({
             agentId: config.agentId,
@@ -35,7 +32,7 @@ function GetChatMessagesHandler(config: MechaAgentRouteHandlerConfig) {
     }
 };
 
-function SendPromptHandler(config: MechaAgentRouteHandlerConfig) {
+function SendPromptHandler(config: RouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const json = await e.request.json()
         const { body, status, headers } = await SendPrompt({
@@ -52,17 +49,13 @@ function SendPromptHandler(config: MechaAgentRouteHandlerConfig) {
     }
 };
 
-export function handler(config: MechaAgentRouteHandlerConfig) {
+export function handler(config: RouteHandlerConfig) {
     return function (e: RequestEvent) {
         switch (e.request.method) {
             case 'GET': {
                 switch (e.url.searchParams.get("target")) {
                     case "agent-data": {
                         return GetAgentDataHandler(config)()
-                    }
-
-                    case "agent-avatar": {
-                        return GetAgentAvatarHandler(config)(e)
                     }
 
                     case "chat-messages": {

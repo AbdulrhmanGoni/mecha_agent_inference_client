@@ -1,5 +1,5 @@
 type Params = {
-    apiKey: string;
+    apiKey?: string;
     agentId: string;
     prompt?: string;
     chatId?: string;
@@ -9,26 +9,25 @@ type Params = {
 type GetAgentDataReturn = {
     body: Record<string, unknown> | Response["body"];
     status: number;
-    headers
-    ?: Record<string, unknown>;
+    headers?: Record<string, unknown>;
 }
 
 const MECHA_AGENT_BASE_URL = process.env.MECHA_AGENT_BASE_URL;
 
 export async function GetAgentData({ apiKey, agentId }: Params): Promise<GetAgentDataReturn> {
     try {
-        const url = `${MECHA_AGENT_BASE_URL}/api/agents/${agentId}?published=yes`
-        const response = await fetch(url, {
+        const path = `/api/agents${apiKey ? "" : "/public"}/${agentId}`
+        const response = await fetch(MECHA_AGENT_BASE_URL + path, {
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: "Bearer " + apiKey,
+                ...(apiKey ? { Authorization: "Bearer " + apiKey } : undefined),
             },
         });
 
         if (!response.ok) {
             const errorBody = await response.json()
             console.error(
-                `Error from mecha agent server at \`GET /api/agents/${agentId}\`:`,
+                `Error from mecha agent server at \`GET ${path}\`:`,
                 errorBody.error || 'Unknown error'
             );
             return { body: { error: "Error from mecha agent server" }, status: response.status }
@@ -43,12 +42,12 @@ export async function GetAgentData({ apiKey, agentId }: Params): Promise<GetAgen
 
 export async function SendPrompt({ apiKey, agentId, chatId, prompt }: Params): Promise<GetAgentDataReturn> {
     try {
-        const url = `${MECHA_AGENT_BASE_URL}/api/chats/${chatId}?agentId=${agentId}&anonymous=yes`
-        const response = await fetch(url, {
+        const path = `/api/chats${apiKey ? "" : "/public"}/${chatId}?agentId=${agentId}`
+        const response = await fetch(MECHA_AGENT_BASE_URL + path, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: "Bearer " + apiKey
+                ...(apiKey ? { Authorization: "Bearer " + apiKey } : undefined),
             },
             body: JSON.stringify({ prompt }),
         });
@@ -56,7 +55,7 @@ export async function SendPrompt({ apiKey, agentId, chatId, prompt }: Params): P
         if (!response.ok) {
             const errorBody = await response.json()
             console.error(
-                `Error from mecha agent server at \`POST /api/chats/${chatId}\`:`,
+                `Error from mecha agent server at \`POST ${path}\`:`,
                 errorBody.error || 'Unknown error'
             );
             return { body: { error: "Error from mecha agent server" }, status: response.status }
@@ -75,18 +74,18 @@ export async function SendPrompt({ apiKey, agentId, chatId, prompt }: Params): P
 
 export async function GetChatMessages({ apiKey, agentId, chatId }: Params): Promise<GetAgentDataReturn> {
     try {
-        const url = `${MECHA_AGENT_BASE_URL}/api/chats/${chatId}?agentId=${agentId}&anonymous=yes`
-        const response = await fetch(url, {
+        const path = `/api/chats${apiKey ? "" : "/public"}/${chatId}?agentId=${agentId}`
+        const response = await fetch(MECHA_AGENT_BASE_URL + path, {
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: "Bearer " + apiKey
+                ...(apiKey ? { Authorization: "Bearer " + apiKey } : undefined),
             },
         });
 
         if (!response.ok) {
             const errorBody = await response.json()
             console.error(
-                `Error from mecha agent server at \`GET /api/chats/${chatId}\`:`,
+                `Error from mecha agent server at \`GET ${path}\`:`,
                 errorBody.error || 'Unknown error'
             );
             return { body: { error: "Error from mecha agent server" }, status: response.status }

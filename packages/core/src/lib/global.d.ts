@@ -11,3 +11,8 @@ export type ChatMessage = {
     role: "user" | "agent";
     content: string;
 }
+
+export type MechaAgentRouteHandlerConfig = {
+    agentId: string;
+    apiKey?: string;
+}
