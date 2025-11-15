@@ -6,15 +6,22 @@ type promptRequestOptions = {
     onData: (data: string) => void,
     onEnd?: (fullResponse: string, newChatId: string | null) => void,
     onError?: (message: string) => void,
+    agentId?: string,
 }
 
 export async function promptRequest(
-    { prompt, chatId, onData, onEnd, onError }: promptRequestOptions
+    { prompt, chatId, onData, onEnd, onError, agentId }: promptRequestOptions
 ) {
     const { scroll, endScrolling } = autoScrollToTheEndOfChat();
     try {
         scroll()
-        const response = await fetch(`/api/mecha-agent?target=chat&chatId=${chatId || "new"}`, {
+        const searchParams = new URLSearchParams([
+            ["target", "chat"],
+            ["chatId", chatId || "new"],
+        ])
+        if (agentId) searchParams.set("agentId", agentId)
+
+        const response = await fetch(`/api/mecha-agent?${searchParams.toString()}`, {
             method: "POST",
             body: JSON.stringify({ prompt }),
         });

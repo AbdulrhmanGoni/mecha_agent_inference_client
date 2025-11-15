@@ -13,6 +13,6 @@ export type ChatMessage = {
 }
 
 export type MechaAgentRouteHandlerConfig = {
-    agentId: string;
+    agentId?: string;
     apiKey?: string;
 }

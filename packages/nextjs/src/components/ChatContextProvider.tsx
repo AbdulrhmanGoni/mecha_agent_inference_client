@@ -22,9 +22,8 @@ export const chatContextDefaultValues: ChatContext = {
 
 export const chatContext = createContext<ChatContext>(chatContextDefaultValues)
 
-
-export default function ChatContextProvider({ children }: { children: ReactNode }) {
-    const state = useChat(chatContextDefaultValues);
+export default function ChatContextProvider({ children, agentId }: { children: ReactNode, agentId: string }) {
+    const state = useChat(chatContextDefaultValues, agentId);
 
     return (
         <chatContext.Provider value={state}>

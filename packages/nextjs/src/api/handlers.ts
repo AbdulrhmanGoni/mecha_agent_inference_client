@@ -3,11 +3,11 @@ import { NextRequest } from "next/server";
 
 type RouteHandlerConfig = import("@mecha_agent_inference_client/core/types").MechaAgentRouteHandlerConfig
 
-function GetAgentDataHandler(config: RouteHandlerConfig) {
-    return async function () {
+function GetAgentDataHandler(config?: RouteHandlerConfig) {
+    return async function (req: NextRequest) {
         const { body, status } = await GetAgentData({
-            agentId: config.agentId,
-            apiKey: config.apiKey,
+            agentId: req.nextUrl.searchParams.get("agentId") || config?.agentId || "",
+            apiKey: config?.apiKey,
         })
 
         return new Response(
@@ -17,11 +17,11 @@ function GetAgentDataHandler(config: RouteHandlerConfig) {
     }
 }
 
-function GetChatMessagesHandler(config: RouteHandlerConfig) {
+function GetChatMessagesHandler(config?: RouteHandlerConfig) {
     return async function (req: NextRequest) {
         const { body, status } = await GetChatMessages({
-            agentId: config.agentId,
-            apiKey: config.apiKey,
+            agentId: req.nextUrl.searchParams.get("agentId") || config?.agentId || "",
+            apiKey: config?.apiKey,
             chatId: req.nextUrl.searchParams.get("chatId")!,
         })
 
@@ -32,12 +32,12 @@ function GetChatMessagesHandler(config: RouteHandlerConfig) {
     }
 };
 
-function SendPromptHandler(config: RouteHandlerConfig) {
+function SendPromptHandler(config?: RouteHandlerConfig) {
     return async function (req: NextRequest) {
         const json = await req.json()
         const { body, status, headers } = await SendPrompt({
-            agentId: config.agentId,
-            apiKey: config.apiKey,
+            agentId: req.nextUrl.searchParams.get("agentId") || config?.agentId || "",
+            apiKey: config?.apiKey,
             chatId: req.nextUrl.searchParams.get("chatId")!,
             prompt: json?.prompt
         })
@@ -49,13 +49,13 @@ function SendPromptHandler(config: RouteHandlerConfig) {
     }
 };
 
-export function handler(config: RouteHandlerConfig) {
+export function handler(config?: RouteHandlerConfig) {
     return async function (request: NextRequest) {
         switch (request.method) {
             case 'GET': {
                 switch (request.nextUrl.searchParams.get("target")) {
                     case "agent-data": {
-                        return GetAgentDataHandler(config)()
+                        return GetAgentDataHandler(config)(request)
                     }
 
                     case "chat-messages": {

@@ -2,7 +2,7 @@ import { promptRequest } from "@mecha_agent_inference_client/core/client";
 import { FormEvent, useContext } from "react";
 import { chatContext } from "./ChatContextProvider";
 
-export default function PromptInput() {
+export default function PromptInput({ agentId }: { agentId: string }) {
     const {
         setError,
         addMessage,
@@ -31,6 +31,7 @@ export default function PromptInput() {
             promptRequest({
                 prompt: prompt.toString(),
                 chatId,
+                agentId,
                 onData(data) {
                     setGeneratingResponse(message => message + data)
                 },

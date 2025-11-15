@@ -2,6 +2,7 @@
   import type { FormEventHandler } from "svelte/elements";
   import { promptRequest } from "@mecha_agent_inference_client/core/client";
   import { chatState } from "../store/chat.svelte.js";
+  import { agentState } from "../store/agent.svelte.js";
 
   const onPromptSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@
         promptRequest({
           prompt: chatState.currentPrompt,
           chatId: chatState.chatId,
+          agentId: agentState.agent?.id,
           onData(data) {
             responsePart.content += data;
           },

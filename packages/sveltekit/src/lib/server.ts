@@ -3,11 +3,11 @@ import { GetAgentData, SendPrompt, GetChatMessages } from "@mecha_agent_inferenc
 
 type RouteHandlerConfig = import("@mecha_agent_inference_client/core/types").MechaAgentRouteHandlerConfig
 
-function GetAgentDataHandler(config: RouteHandlerConfig) {
-    return async function () {
+function GetAgentDataHandler(config?: RouteHandlerConfig) {
+    return async function (e: RequestEvent) {
         const { body, status } = await GetAgentData({
-            agentId: config.agentId,
-            apiKey: config.apiKey,
+            agentId: e.url.searchParams.get("agentId") || config?.agentId || "",
+            apiKey: config?.apiKey,
         })
 
         return new Response(
@@ -17,11 +17,11 @@ function GetAgentDataHandler(config: RouteHandlerConfig) {
     }
 }
 
-function GetChatMessagesHandler(config: RouteHandlerConfig) {
+function GetChatMessagesHandler(config?: RouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const { body, status } = await GetChatMessages({
-            agentId: config.agentId,
-            apiKey: config.apiKey,
+            agentId: e.url.searchParams.get("agentId") || config?.agentId || "",
+            apiKey: config?.apiKey,
             chatId: e.url.searchParams.get("chatId")?.toString(),
         })
 
@@ -32,12 +32,12 @@ function GetChatMessagesHandler(config: RouteHandlerConfig) {
     }
 };
 
-function SendPromptHandler(config: RouteHandlerConfig) {
+function SendPromptHandler(config?: RouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const json = await e.request.json()
         const { body, status, headers } = await SendPrompt({
-            agentId: config.agentId,
-            apiKey: config.apiKey,
+            agentId: e.url.searchParams.get("agentId") || config?.agentId || "",
+            apiKey: config?.apiKey,
             chatId: e.url.searchParams.get("chatId")?.toString(),
             prompt: json?.prompt
         })
@@ -49,13 +49,13 @@ function SendPromptHandler(config: RouteHandlerConfig) {
     }
 };
 
-export function handler(config: RouteHandlerConfig) {
+export function handler(config?: RouteHandlerConfig) {
     return function (e: RequestEvent) {
         switch (e.request.method) {
             case 'GET': {
                 switch (e.url.searchParams.get("target")) {
                     case "agent-data": {
-                        return GetAgentDataHandler(config)()
+                        return GetAgentDataHandler(config)(e)
                     }
 
                     case "chat-messages": {

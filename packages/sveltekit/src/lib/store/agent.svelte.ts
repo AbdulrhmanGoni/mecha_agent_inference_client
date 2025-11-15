@@ -10,10 +10,10 @@ export const agentState = $state<AgentState>({
     error: ""
 });
 
-export function fetchAgentData() {
+export function fetchAgentData(agentId: string = "") {
     if (!agentState.loading) {
         agentState.loading = true
-        fetch("/api/mecha-agent?target=agent-data")
+        fetch("/api/mecha-agent?target=agent-data" + (agentId ? `&agentId=${agentId}` : ""))
             .then((res) => res.json())
             .then((res) => {
                 if (res.result) {

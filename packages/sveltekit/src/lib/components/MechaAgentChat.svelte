@@ -10,6 +10,8 @@
   import { agentState, fetchAgentData } from "../store/agent.svelte.js";
   import { chatState } from "../store/chat.svelte.js";
 
+  const { agentId }: { agentId?: string } = $props();
+
   function setTheme(idDarkTheme: boolean) {
     if (idDarkTheme) {
       document.querySelector("#mecha-agent-chat")?.classList.add("dark");
@@ -19,13 +21,13 @@
   }
 
   onMount(() => {
-    fetchAgentData();
+    fetchAgentData(agentId);
     const theme = localStorage.getItem("mecha-agent-chat-theme");
     if (theme) {
       setTheme(theme === "dark");
     } else {
       const systemIsDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
       setTheme(systemIsDark);
     }
@@ -53,5 +55,5 @@
 </div>
 
 {#snippet retryButton()}
-  <button onclick={fetchAgentData}>Retry</button>
+  <button onclick={() => fetchAgentData(agentId)}>Retry</button>
 {/snippet}

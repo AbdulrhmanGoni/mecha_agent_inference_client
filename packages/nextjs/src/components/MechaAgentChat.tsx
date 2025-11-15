@@ -6,8 +6,8 @@ import Alert from "./Alert"
 import LoadingAgent from "./LoadingAgent"
 import ChatLayout from "./ChatLayout"
 
-export default function MechaAgentChat() {
-    const { agent, agentLoading, agentError, refetchAgent } = useAgent();
+export default function MechaAgentChat({ agentId }: { agentId?: string }) {
+    const { agent, agentLoading, agentError, refetchAgent } = useAgent(agentId);
 
     function setTheme(idDarkTheme: boolean) {
         if (idDarkTheme) {
