@@ -1,5 +1,16 @@
 # @mecha_agent_inference_client/sveltekit
 
+## 1.4.0
+
+### Minor Changes
+
+- add `agentId` prop to `MechaAgentChat` component
+
+### Patch Changes
+
+- Updated dependencies
+  - @mecha_agent_inference_client/core@1.4.0
+
 ## 1.3.0
 
 ### Minor Changes

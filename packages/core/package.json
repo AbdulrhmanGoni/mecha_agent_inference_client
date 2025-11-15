@@ -1,7 +1,7 @@
 {
   "name": "@mecha_agent_inference_client/core",
   "description": "The package that contains the core logic of Mecha Agent inference client",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": false,
   "type": "module",
   "license": "ISC",

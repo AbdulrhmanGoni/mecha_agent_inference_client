@@ -1,5 +1,11 @@
 # @mecha_agent_inference_client/core
 
+## 1.4.0
+
+### Minor Changes
+
+- add `agentId` prop to `MechaAgentChat` component
+
 ## 1.3.0
 
 ### Minor Changes
