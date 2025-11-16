@@ -1,12 +1,6 @@
-type Params = {
-    apiKey?: string;
-    agentId: string;
-    prompt?: string;
-    chatId?: string;
-    avatarId?: string;
-}
+import type { MechaAgentRouteHandlerConfig } from "./global";
 
-type GetAgentDataReturn = {
+type RouteHandlerReturn = {
     body: Record<string, unknown> | Response["body"];
     status: number;
     headers?: Record<string, unknown>;
@@ -14,7 +8,8 @@ type GetAgentDataReturn = {
 
 const MECHA_AGENT_BASE_URL = process.env.MECHA_AGENT_BASE_URL;
 
-export async function GetAgentData({ apiKey, agentId }: Params): Promise<GetAgentDataReturn> {
+type GetAgentDataHandlerParams = MechaAgentRouteHandlerConfig
+export async function GetAgentData({ apiKey, agentId }: GetAgentDataHandlerParams): Promise<RouteHandlerReturn> {
     try {
         const path = `/api/agents${apiKey ? "" : "/public"}/${agentId}`
         const response = await fetch(MECHA_AGENT_BASE_URL + path, {
@@ -40,7 +35,11 @@ export async function GetAgentData({ apiKey, agentId }: Params): Promise<GetAgen
     }
 };
 
-export async function SendPrompt({ apiKey, agentId, chatId, prompt }: Params): Promise<GetAgentDataReturn> {
+type SendPromptHandlerParams = MechaAgentRouteHandlerConfig & {
+    prompt?: string;
+    chatId?: string;
+}
+export async function SendPrompt({ apiKey, agentId, chatId, prompt }: SendPromptHandlerParams): Promise<RouteHandlerReturn> {
     try {
         const path = `/api/chats${apiKey ? "" : "/public"}/${chatId}?agentId=${agentId}`
         const response = await fetch(MECHA_AGENT_BASE_URL + path, {
@@ -72,7 +71,10 @@ export async function SendPrompt({ apiKey, agentId, chatId, prompt }: Params): P
     }
 }
 
-export async function GetChatMessages({ apiKey, agentId, chatId }: Params): Promise<GetAgentDataReturn> {
+type GetChatMessagesHandlerParams = MechaAgentRouteHandlerConfig & {
+    chatId?: string;
+}
+export async function GetChatMessages({ apiKey, agentId, chatId }: GetChatMessagesHandlerParams): Promise<RouteHandlerReturn> {
     try {
         const path = `/api/chats${apiKey ? "" : "/public"}/${chatId}?agentId=${agentId}`
         const response = await fetch(MECHA_AGENT_BASE_URL + path, {
