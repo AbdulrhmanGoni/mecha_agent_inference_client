@@ -1,5 +1,12 @@
 # @mecha_agent_inference_client/core
 
+## 1.5.0
+
+### Minor Changes
+
+- make the host of mecha agent server configurable
+- make the path of the api route handler configurable
+
 ## 1.4.0
 
 ### Minor Changes
