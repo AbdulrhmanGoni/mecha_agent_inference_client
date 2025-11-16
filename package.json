@@ -6,7 +6,7 @@
     "build:prod": "turbo run build:prod",
     "dev": "turbo run dev",
     "dev:watch": "turbo watch dev",
-    "release": "turbo run build:prod && changesets publish"
+    "release": "turbo run build:prod && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.4",
