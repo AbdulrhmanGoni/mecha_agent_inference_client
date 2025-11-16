@@ -15,6 +15,7 @@ export type ChatMessage = {
 export type MechaAgentRouteHandlerConfig = {
     agentId?: string;
     apiKey?: string;
+    serverHost?: string;
 }
 
 export type MechaAgentConfig = {

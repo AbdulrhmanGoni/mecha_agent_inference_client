@@ -6,8 +6,8 @@ type RouteHandlerConfig = import("@mecha_agent_inference_client/core/types").Mec
 function GetAgentDataHandler(config?: RouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const { body, status } = await GetAgentData({
+            ...config,
             agentId: e.url.searchParams.get("agentId") || config?.agentId || "",
-            apiKey: config?.apiKey,
         })
 
         return new Response(
@@ -20,8 +20,8 @@ function GetAgentDataHandler(config?: RouteHandlerConfig) {
 function GetChatMessagesHandler(config?: RouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const { body, status } = await GetChatMessages({
+            ...config,
             agentId: e.url.searchParams.get("agentId") || config?.agentId || "",
-            apiKey: config?.apiKey,
             chatId: e.url.searchParams.get("chatId")?.toString(),
         })
 
@@ -36,8 +36,8 @@ function SendPromptHandler(config?: RouteHandlerConfig) {
     return async function (e: RequestEvent) {
         const json = await e.request.json()
         const { body, status, headers } = await SendPrompt({
+            ...config,
             agentId: e.url.searchParams.get("agentId") || config?.agentId || "",
-            apiKey: config?.apiKey,
             chatId: e.url.searchParams.get("chatId")?.toString(),
             prompt: json?.prompt
         })

@@ -6,8 +6,8 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, "./", "");
     return {
         define: {
-            "process.env.MECHA_AGENT_BASE_URL":
-                `'${mode === "production" ? env.PROD_MECHA_AGENT_BASE_URL : env.DEV_MECHA_AGENT_BASE_URL}'`,
+            "process.env.MECHA_AGENT_HOST_URL":
+                `'${mode === "production" ? env.PROD_MECHA_AGENT_HOST_URL : env.DEV_MECHA_AGENT_HOST_URL}'`,
             "process.env.MECHA_AGENT_APP_URL":
                 `'${mode === "production" ? env.PROD_MECHA_AGENT_APP_URL : env.DEV_MECHA_AGENT_APP_URL}'`,
         },

@@ -6,13 +6,14 @@ type RouteHandlerReturn = {
     headers?: Record<string, unknown>;
 }
 
-const MECHA_AGENT_BASE_URL = process.env.MECHA_AGENT_BASE_URL;
+const MECHA_AGENT_HOST_URL = process.env.MECHA_AGENT_HOST_URL;
 
 type GetAgentDataHandlerParams = MechaAgentRouteHandlerConfig
-export async function GetAgentData({ apiKey, agentId }: GetAgentDataHandlerParams): Promise<RouteHandlerReturn> {
+export async function GetAgentData({ apiKey, agentId, serverHost }: GetAgentDataHandlerParams): Promise<RouteHandlerReturn> {
     try {
+        const host = serverHost || MECHA_AGENT_HOST_URL
         const path = `/api/agents${apiKey ? "" : "/public"}/${agentId}`
-        const response = await fetch(MECHA_AGENT_BASE_URL + path, {
+        const response = await fetch(host + path, {
             headers: {
                 'Content-Type': 'application/json',
                 ...(apiKey ? { Authorization: "Bearer " + apiKey } : undefined),
@@ -39,10 +40,11 @@ type SendPromptHandlerParams = MechaAgentRouteHandlerConfig & {
     prompt?: string;
     chatId?: string;
 }
-export async function SendPrompt({ apiKey, agentId, chatId, prompt }: SendPromptHandlerParams): Promise<RouteHandlerReturn> {
+export async function SendPrompt({ apiKey, agentId, chatId, prompt, serverHost }: SendPromptHandlerParams): Promise<RouteHandlerReturn> {
     try {
+        const host = serverHost || MECHA_AGENT_HOST_URL
         const path = `/api/chats${apiKey ? "" : "/public"}/${chatId}?agentId=${agentId}`
-        const response = await fetch(MECHA_AGENT_BASE_URL + path, {
+        const response = await fetch(host + path, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,10 +76,11 @@ export async function SendPrompt({ apiKey, agentId, chatId, prompt }: SendPrompt
 type GetChatMessagesHandlerParams = MechaAgentRouteHandlerConfig & {
     chatId?: string;
 }
-export async function GetChatMessages({ apiKey, agentId, chatId }: GetChatMessagesHandlerParams): Promise<RouteHandlerReturn> {
+export async function GetChatMessages({ apiKey, agentId, chatId, serverHost }: GetChatMessagesHandlerParams): Promise<RouteHandlerReturn> {
     try {
+        const host = serverHost || MECHA_AGENT_HOST_URL
         const path = `/api/chats${apiKey ? "" : "/public"}/${chatId}?agentId=${agentId}`
-        const response = await fetch(MECHA_AGENT_BASE_URL + path, {
+        const response = await fetch(host + path, {
             headers: {
                 'Content-Type': 'application/json',
                 ...(apiKey ? { Authorization: "Bearer " + apiKey } : undefined),
