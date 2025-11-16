@@ -14,7 +14,7 @@ export function setupRouteHandler(framework: SupportedFramework, options: RouteS
         `${dist}/${framework.routeFileName}.${extention}`,
         (error) => {
             if (error) {
-                console.log(
+                console.error(
                     `Error while setting up the Mecha Agent inference client route handler in`,
                     `"${distFile}" file ❌:`,
                     error
