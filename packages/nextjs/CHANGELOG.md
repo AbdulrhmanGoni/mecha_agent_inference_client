@@ -1,5 +1,11 @@
 # @mecha_agent_inference_client/nextjs
 
+## 1.5.1
+
+### Patch Changes
+
+- correct exposing MechaAgentChat component's type definition to end users
+
 ## 1.5.0
 
 ### Minor Changes

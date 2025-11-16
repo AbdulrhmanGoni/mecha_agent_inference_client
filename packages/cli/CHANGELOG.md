@@ -1,5 +1,11 @@
 # @mecha_agent_inference_client/cli
 
+## 1.1.2
+
+### Patch Changes
+
+- use `console.error` for error logging in `setupRouteHandler`
+
 ## 1.1.1
 
 ### Patch Changes
