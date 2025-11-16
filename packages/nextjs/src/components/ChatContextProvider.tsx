@@ -1,5 +1,6 @@
 import { createContext, ReactNode } from "react"
 import useChat from "../hooks/useChat";
+import { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 
 const placeholderFunction = () => { }
 

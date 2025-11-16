@@ -1,3 +1,4 @@
+import { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 import { useEffect, useState } from "react";
 
 export default function useChat(config: MechaAgentConfig, defaultValues: ChatContext): ChatContext {

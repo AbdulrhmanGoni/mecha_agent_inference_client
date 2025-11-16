@@ -1,3 +1,4 @@
+import { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 import ChatBody from "./ChatBody";
 import ChatContextProvider from "./ChatContextProvider";
 import Footer from "./Footer";

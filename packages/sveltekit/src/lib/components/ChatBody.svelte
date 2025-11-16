@@ -4,6 +4,7 @@
   import Alert from "./Alert.svelte";
   import ChatMessage from "./ChatMessage.svelte";
   import LoadingChatMessages from "./LoadingChatMessages.svelte";
+  import type { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 
   const { agent, config }: { agent: Agent; config: MechaAgentConfig } =
     $props();

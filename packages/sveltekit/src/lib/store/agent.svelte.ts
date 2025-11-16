@@ -1,3 +1,5 @@
+import type { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
+
 type AgentState = {
     agent: Agent | null;
     loading: boolean;

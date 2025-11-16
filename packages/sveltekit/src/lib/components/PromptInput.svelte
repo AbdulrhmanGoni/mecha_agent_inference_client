@@ -2,6 +2,7 @@
   import type { FormEventHandler } from "svelte/elements";
   import { promptRequest } from "@mecha_agent_inference_client/core/client";
   import { chatState } from "../store/chat.svelte.js";
+  import type { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 
   const { config }: { config: MechaAgentConfig } = $props();
 

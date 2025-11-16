@@ -6,6 +6,7 @@ import Alert from "./Alert"
 import LoadingAgent from "./LoadingAgent"
 import ChatLayout from "./ChatLayout"
 import { defaultRouteHandlerPath } from "@mecha_agent_inference_client/core/client"
+import { MechaAgentConfig } from "@mecha_agent_inference_client/core/types"
 
 export default function MechaAgentChat(props: MechaAgentConfig) {
     const config = {

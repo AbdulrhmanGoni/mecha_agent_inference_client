@@ -10,6 +10,7 @@
   import { agentState, fetchAgentData } from "../store/agent.svelte.js";
   import { chatState } from "../store/chat.svelte.js";
   import { defaultRouteHandlerPath } from "@mecha_agent_inference_client/core/client";
+  import type { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 
   const props: MechaAgentConfig = $props();
 

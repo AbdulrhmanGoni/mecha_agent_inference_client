@@ -1,3 +1,4 @@
+import type { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 
 type ChatState = {
     chatId: string;

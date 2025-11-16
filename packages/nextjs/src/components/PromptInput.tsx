@@ -1,6 +1,7 @@
 import { promptRequest } from "@mecha_agent_inference_client/core/client";
 import { FormEvent, useContext } from "react";
 import { chatContext } from "./ChatContextProvider";
+import { MechaAgentConfig } from "@mecha_agent_inference_client/core/types";
 
 export default function PromptInput({ config }: { config: MechaAgentConfig }) {
     const {
