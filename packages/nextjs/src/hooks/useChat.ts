@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useChat(defaultValues: ChatContext, agentId: string = ""): ChatContext {
+export default function useChat(config: MechaAgentConfig, defaultValues: ChatContext): ChatContext {
     const [messages, setMessages] = useState<ChatContext["messages"]>(defaultValues.messages);
     const [loadingMessages, setLoadingMessages] = useState(false);
     const [loadingMessagesError, setLoadingMessagesError] = useState("");
@@ -12,7 +12,7 @@ export default function useChat(defaultValues: ChatContext, agentId: string = ""
     function fetchChatMessages(chatId: string) {
         setChatId(chatId)
         setLoadingMessages(true)
-        fetch(`/api/mecha-agent?target=chat-messages&chatId=${chatId}` + (agentId ? `&agentId=${agentId}` : ""))
+        fetch(`${config.routeHandlerPath}?target=chat-messages&chatId=${chatId}` + (config.agentId ? `&agentId=${config.agentId}` : ""))
             .then((res) => {
                 if (res.status === 404) {
                     localStorage.removeItem("last-mecha-agent-chat-session")

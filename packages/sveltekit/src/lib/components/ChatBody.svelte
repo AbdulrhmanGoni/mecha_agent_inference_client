@@ -5,9 +5,10 @@
   import ChatMessage from "./ChatMessage.svelte";
   import LoadingChatMessages from "./LoadingChatMessages.svelte";
 
-  const { agent }: { agent: Agent } = $props();
+  const { agent, config }: { agent: Agent; config: MechaAgentConfig } =
+    $props();
 
-  onMount(fetchChatMessages);
+  onMount(() => fetchChatMessages(config));
 </script>
 
 {#if chatState.isFetching}
@@ -21,7 +22,7 @@
     <button
       aria-label="Refetch chat messages"
       class="refetch-chat-messages-icon"
-      onclick={fetchChatMessages}
+      onclick={() => fetchChatMessages(config)}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path

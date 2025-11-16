@@ -1,4 +1,3 @@
-import { agentState } from "./agent.svelte.js";
 
 type ChatState = {
     chatId: string;
@@ -22,16 +21,16 @@ export const chatState = $state<ChatState>({
     currentPrompt: "",
 });
 
-export function fetchChatMessages() {
+export function fetchChatMessages(config: MechaAgentConfig) {
     if (chatState.chatId) {
         chatState.isFetching = true;
         const searchParams = new URLSearchParams([
             ["target", "chat-messages"],
             ["chatId", chatState.chatId],
         ])
-        if (agentState.agent) searchParams.set("agentId", agentState.agent.id)
+        if (config.agentId) searchParams.set("agentId", config.agentId)
 
-        fetch("/api/mecha-agent?" + searchParams)
+        fetch(config.routeHandlerPath + "?" + searchParams)
             .then((res) => {
                 if (res.status === 404) {
                     localStorage.removeItem("last-mecha-agent-chat-session")

@@ -9,8 +9,14 @@
   import { onMount } from "svelte";
   import { agentState, fetchAgentData } from "../store/agent.svelte.js";
   import { chatState } from "../store/chat.svelte.js";
+  import { defaultRouteHandlerPath } from "@mecha_agent_inference_client/core/client";
 
-  const { agentId }: { agentId?: string } = $props();
+  const props: MechaAgentConfig = $props();
+
+  const config = $state({
+    ...props,
+    routeHandlerPath: props.routeHandlerPath || defaultRouteHandlerPath,
+  });
 
   function setTheme(idDarkTheme: boolean) {
     if (idDarkTheme) {
@@ -21,7 +27,7 @@
   }
 
   onMount(() => {
-    fetchAgentData(agentId);
+    fetchAgentData(config);
     const theme = localStorage.getItem("mecha-agent-chat-theme");
     if (theme) {
       setTheme(theme === "dark");
@@ -46,8 +52,8 @@
     <div class="chat-layout">
       <Header agent={agentState.agent} />
       <div class="chat-body-container">
-        <ChatBody agent={agentState.agent} />
-        <PromptInput />
+        <ChatBody {config} agent={agentState.agent} />
+        <PromptInput {config} />
       </div>
       <Footer />
     </div>
@@ -55,5 +61,5 @@
 </div>
 
 {#snippet retryButton()}
-  <button onclick={() => fetchAgentData(agentId)}>Retry</button>
+  <button onclick={() => fetchAgentData(config)}>Retry</button>
 {/snippet}

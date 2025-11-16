@@ -22,8 +22,8 @@ export const chatContextDefaultValues: ChatContext = {
 
 export const chatContext = createContext<ChatContext>(chatContextDefaultValues)
 
-export default function ChatContextProvider({ children, agentId }: { children: ReactNode, agentId: string }) {
-    const state = useChat(chatContextDefaultValues, agentId);
+export default function ChatContextProvider({ children, config }: { children: ReactNode, config: MechaAgentConfig }) {
+    const state = useChat(config, chatContextDefaultValues);
 
     return (
         <chatContext.Provider value={state}>

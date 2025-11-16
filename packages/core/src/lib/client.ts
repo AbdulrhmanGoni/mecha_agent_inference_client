@@ -1,4 +1,5 @@
 import "../styles/index.css"
+import type { MechaAgentConfig } from "./global";
 
 type promptRequestOptions = {
     prompt: string,
@@ -6,11 +7,11 @@ type promptRequestOptions = {
     onData: (data: string) => void,
     onEnd?: (fullResponse: string, newChatId: string | null) => void,
     onError?: (message: string) => void,
-    agentId?: string,
+    config: MechaAgentConfig,
 }
 
 export async function promptRequest(
-    { prompt, chatId, onData, onEnd, onError, agentId }: promptRequestOptions
+    { prompt, chatId, onData, onEnd, onError, config }: promptRequestOptions
 ) {
     const { scroll, endScrolling } = autoScrollToTheEndOfChat();
     try {
@@ -19,9 +20,9 @@ export async function promptRequest(
             ["target", "chat"],
             ["chatId", chatId || "new"],
         ])
-        if (agentId) searchParams.set("agentId", agentId)
+        if (config.agentId) searchParams.set("agentId", config.agentId)
 
-        const response = await fetch(`/api/mecha-agent?${searchParams.toString()}`, {
+        const response = await fetch(`${config.routeHandlerPath}?${searchParams.toString()}`, {
             method: "POST",
             body: JSON.stringify({ prompt }),
         });
@@ -108,3 +109,5 @@ export const footerLinks: FooterLinks = {
         link: `${process.env.MECHA_AGENT_APP_URL}/privacy`,
     },
 }
+
+export const defaultRouteHandlerPath = "/api/mecha-agent"

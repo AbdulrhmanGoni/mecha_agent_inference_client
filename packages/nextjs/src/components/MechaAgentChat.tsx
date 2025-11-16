@@ -5,9 +5,15 @@ import useAgent from "../hooks/useAgent"
 import Alert from "./Alert"
 import LoadingAgent from "./LoadingAgent"
 import ChatLayout from "./ChatLayout"
+import { defaultRouteHandlerPath } from "@mecha_agent_inference_client/core/client"
 
-export default function MechaAgentChat({ agentId }: { agentId?: string }) {
-    const { agent, agentLoading, agentError, refetchAgent } = useAgent(agentId);
+export default function MechaAgentChat(props: MechaAgentConfig) {
+    const config = {
+        ...props,
+        routeHandlerPath: props.routeHandlerPath || defaultRouteHandlerPath,
+    }
+
+    const { agent, agentLoading, agentError, refetchAgent } = useAgent(config);
 
     function setTheme(idDarkTheme: boolean) {
         if (idDarkTheme) {
@@ -35,7 +41,7 @@ export default function MechaAgentChat({ agentId }: { agentId?: string }) {
                         message={agentError}
                         actionIcon={<button onClick={refetchAgent}>Retry</button>}
                     /> :
-                        agent ? <ChatLayout agent={agent} /> : null
+                        agent ? <ChatLayout agent={agent} config={config} /> : null
             }
         </div>
     )

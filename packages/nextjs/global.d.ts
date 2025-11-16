@@ -1,5 +1,6 @@
 type Agent = import("@mecha_agent_inference_client/core/types").Agent
 type ChatMessage = import("@mecha_agent_inference_client/core/types").ChatMessage
+type MechaAgentConfig = import("@mecha_agent_inference_client/core/types").MechaAgentConfig
 
 type ChatContext = {
     chatId: string;

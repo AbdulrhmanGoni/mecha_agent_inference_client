@@ -16,3 +16,8 @@ export type MechaAgentRouteHandlerConfig = {
     agentId?: string;
     apiKey?: string;
 }
+
+export type MechaAgentConfig = {
+    agentId?: string;
+    routeHandlerPath?: string;
+}

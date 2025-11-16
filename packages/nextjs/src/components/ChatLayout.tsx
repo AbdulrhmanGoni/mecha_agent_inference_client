@@ -4,14 +4,14 @@ import Footer from "./Footer";
 import Header from "./Header";
 import PromptInput from "./PromptInput";
 
-export default function ChatLayout({ agent }: { agent: Agent }) {
+export default function ChatLayout({ agent, config }: { agent: Agent, config: MechaAgentConfig }) {
     return (
-        <ChatContextProvider agentId={agent.id} >
+        <ChatContextProvider config={config} >
             <div className="chat-layout">
                 <Header agent={agent} />
                 <div className="chat-body-container">
                     <ChatBody agent={agent} />
-                    <PromptInput agentId={agent.id} />
+                    <PromptInput config={config} />
                 </div>
                 <Footer />
             </div>

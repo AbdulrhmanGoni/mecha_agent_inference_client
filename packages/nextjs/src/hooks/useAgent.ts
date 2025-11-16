@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useAgent(agentId: string = "") {
+export default function useAgent(config: MechaAgentConfig) {
     const [agentLoading, setAgentLoading] = useState(false);
     const [agentError, setAgentError] = useState("");
     const [agent, setAgent] = useState<Agent | null>(null);
@@ -10,7 +10,7 @@ export default function useAgent(agentId: string = "") {
     function fetchAgent() {
         if (!agentLoading) {
             setAgentLoading(true)
-            fetch('/api/mecha-agent?target=agent-data' + (agentId ? `&agentId=${agentId}` : ""))
+            fetch(config.routeHandlerPath + '?target=agent-data' + (config.agentId ? `&agentId=${config.agentId}` : ""))
                 .then((res) => res.json())
                 .then((res) => {
                     if (res.result) {
